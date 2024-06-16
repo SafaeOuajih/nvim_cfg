@@ -4,7 +4,8 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
-    { "folke/neodev.nvim", opts = {} },
+    { "folke/neodev.nvim",                   opts = {} },
+    { 'simrat39/rust-tools.nvim',            dependencies = 'nvim-lua/plenary.nvim' },
   },
   config = function()
     -- import lspconfig plugin
@@ -75,8 +76,21 @@ return {
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
---      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+      --      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
+
+    local rt = require("rust-tools")
+
+    rt.setup({
+      server = {
+        on_attach = function(_, bufnr)
+          -- Hover actions
+          vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+          -- Code action groups
+          vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+        end,
+      },
+    })
 
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
@@ -134,4 +148,3 @@ return {
     })
   end,
 }
-
