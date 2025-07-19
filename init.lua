@@ -17,6 +17,10 @@ require 'svim.globals'
 -- Core editor configuration.
 require 'svim.options'
 require 'svim.keymaps'
+require 'svim.diagnostics'
+
+-- Builtin LSP configuration.
+require 'svim.lsp'
 
 -- Bootstrap the plugin manager and load every spec under `lua/svim/plugins/`.
 local lazy_opts = require 'svim.lazy-bootstrap'
