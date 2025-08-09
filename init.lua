@@ -1,8 +1,17 @@
 -------------------------------------------------------------------------------
 -- svim - a personal Neovim configuration
 --
--- Entry point sourced by Neovim on startup. It configures the core editor and
--- then hands plugin management over to lazy.nvim.
+-- This is the entry point Neovim sources on startup. It configures the core
+-- editor and then hands plugin management over to lazy.nvim.
+--
+-- The rest of the configuration lives under `lua/svim/`:
+--   - globals.lua      helper functions made available everywhere
+--   - options.lua      builtin option preferences and autocommands
+--   - keymaps.lua      keymaps that are not tied to a specific plugin
+--   - diagnostics.lua  builtin diagnostics configuration
+--   - lsp.lua          builtin LSP client setup
+--   - treesitter.lua   builtin treesitter setup
+--   - plugins/         one file per plugin, loaded automatically by lazy.nvim
 -------------------------------------------------------------------------------
 
 -- Use <space> as the leader key. Unmap its default motion first so the cursor
@@ -19,8 +28,9 @@ require 'svim.options'
 require 'svim.keymaps'
 require 'svim.diagnostics'
 
--- Builtin LSP configuration.
+-- Builtin LSP and treesitter configuration.
 require 'svim.lsp'
+require 'svim.treesitter'
 
 -- Bootstrap the plugin manager and load every spec under `lua/svim/plugins/`.
 local lazy_opts = require 'svim.lazy-bootstrap'
