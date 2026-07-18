@@ -125,3 +125,30 @@ local function save_and_exec_file()
   vim.cmd.luafile(vim.fn.expand '%')
 end
 keymap('n', '<leader><leader>x', save_and_exec_file, 'E[x]ecute the current Lua file')
+
+--- `gf` only searches `&path`, which knows nothing about the include
+--- directories of a compile database. On an `#include` line, ask the language
+--- server instead: it resolves the header using the real compile flags.
+local function goto_file()
+  local line = vim.api.nvim_get_current_line()
+  if line:match '^%s*#%s*include' then
+    for _, client in ipairs(vim.lsp.get_clients { bufnr = 0 }) do
+      if client:supports_method 'textDocument/definition' then
+        vim.lsp.buf.definition()
+        return
+      end
+    end
+  end
+  -- Not an include, or no server attached: keep the default behaviour.
+  local ok, err = pcall(vim.cmd, 'normal! gf')
+  if not ok then
+    vim.notify(err, vim.log.levels.WARN)
+  end
+end
+keymap('n', 'gf', goto_file, '[G]oto [F]ile under cursor')
+
+-- `gd`/`gD` are not mapped to the language server by default: the builtin ones
+-- only look in the current file. Cross-file jumps also need the background
+-- index (e.g. clangd) to be built.
+keymap('n', 'gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+keymap('n', 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
