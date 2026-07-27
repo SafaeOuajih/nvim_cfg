@@ -1,4 +1,4 @@
--- yaml-ls: YAML language server, using SchemaStore for schema validation.
+-- yamlls: YAML language server, using SchemaStore for schema validation.
 local ok, schemastore = pcall(require, 'schemastore')
 local schemas = ok and schemastore.yaml.schemas() or {}
 

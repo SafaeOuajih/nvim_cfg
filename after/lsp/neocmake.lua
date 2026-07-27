@@ -1,4 +1,4 @@
--- neocmakelsp: CMake language server.
+-- neocmake: CMake language server (neocmakelsp).
 -- Defaults are fine; the block below documents the options worth tuning.
 ---@type vim.lsp.Config
 return {

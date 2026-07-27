@@ -61,10 +61,10 @@ autocmd('LspDetach', {
 
 -- Enable the servers. Their settings are read from `after/lsp/<name>.lua`.
 vim.lsp.enable {
-  'harper-ls',
+  'harper_ls',
   'emmylua_ls',
   'taplo',
-  'yaml-ls',
+  'yamlls',
   'jsonls',
   'nil_ls',
   'nixd',
@@ -72,7 +72,7 @@ vim.lsp.enable {
   'clangd',
   'ruff',
   'pylsp',
-  'neocmakelsp',
+  'neocmake',
   'bashls',
   'ltex_plus',
   'zls',

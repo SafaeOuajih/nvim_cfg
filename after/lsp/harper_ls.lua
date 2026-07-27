@@ -1,4 +1,4 @@
--- harper-ls: grammar and spelling checker for prose and comments.
+-- harper_ls: grammar and spelling checker for prose and comments.
 ---@type vim.lsp.Config
 return {
   settings = {
