@@ -2,5 +2,7 @@
 ---@type vim.lsp.Config
 return {
   -- Build a background index and run clang-tidy checks.
-  cmd = { 'clangd', '--background-index', '--clang-tidy' },
+  -- Neovim records server stderr in lsp.log at ERROR level, so clangd's default
+  -- info logging (every LSP message) would bloat the log; keep it to errors.
+  cmd = { 'clangd', '--background-index', '--clang-tidy', '--log=error' },
 }
