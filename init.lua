@@ -11,6 +11,7 @@
 --   - diagnostics.lua  builtin diagnostics configuration
 --   - lsp.lua          builtin LSP client setup
 --   - treesitter.lua   builtin treesitter setup
+--   - clangd-check.lua `:CcCheck`, a clangd compilation database check
 --   - plugins/         one file per plugin, loaded automatically by lazy.nvim
 -------------------------------------------------------------------------------
 
@@ -31,6 +32,7 @@ require 'svim.diagnostics'
 -- Builtin LSP and treesitter configuration.
 require 'svim.lsp'
 require 'svim.treesitter'
+require 'svim.clangd-check'
 
 -- Bootstrap the plugin manager and load every spec under `lua/svim/plugins/`.
 local lazy_opts = require 'svim.lazy-bootstrap'
