@@ -16,6 +16,8 @@ lua/svim/
   diagnostics.lua        builtin diagnostics configuration
   lsp.lua                builtin LSP client setup
   treesitter.lua         builtin treesitter setup
+  clangd-check.lua       :CcCheck, a clangd compilation database check
+  bytes.lua              :Bytes, a byte/bit size converter
   utils.lua              shared utilities
   lazy-bootstrap.lua     installs lazy.nvim
   plugins/               one file per plugin (loaded automatically)
@@ -33,6 +35,7 @@ spell/                   spell dictionaries
 - Diagnostics: [lua/svim/diagnostics.lua](./lua/svim/diagnostics.lua)
 - LSP: [client](./lua/svim/lsp.lua) and [per-server settings](./after/lsp)
 - Treesitter: [lua/svim/treesitter.lua](./lua/svim/treesitter.lua)
+- Commands: [`:CcCheck`](./lua/svim/clangd-check.lua), [`:Bytes`](./lua/svim/bytes.lua)
 
 ## Plugins
 
