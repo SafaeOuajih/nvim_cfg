@@ -61,6 +61,7 @@ spell/                   spell dictionaries
   - [nvim-colorizer.lua](https://github.com/catgoose/nvim-colorizer.lua) (inline color previews)
   - [quicker.nvim](https://github.com/stevearc/quicker.nvim) (better quickfix)
   - [undotree](https://github.com/mbbill/undotree) (undo history browser)
+  - [hex.nvim](https://github.com/RaafatTurki/hex.nvim) (view and edit binaries as a hex dump)
   - [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) (highlight TODO/FIXME/NOTE)
 - **Markdown / notes:** [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim), [obsidian.nvim](https://github.com/obsidian-nvim/obsidian.nvim), [image.nvim](https://github.com/3rd/image.nvim)
 - **AI:** [claudecode.nvim](https://github.com/coder/claudecode.nvim)
