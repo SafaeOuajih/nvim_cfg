@@ -9,6 +9,7 @@
   "fidget.nvim": { "branch": "main", "commit": "6f793b2bcd2d35e201c09520f698bb763220908a" },
   "flatten.nvim": { "branch": "main", "commit": "d92ca41e9c330f45c1b854a80c89c8488a9d730c" },
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
+  "gerrit.nvim": { "branch": "master", "commit": "74653993e3a7c3e1268ff969616e60f9a1f196f7" },
   "gitsigns.nvim": { "branch": "main", "commit": "31d6fb2d618bca1482b9f274751ead5f03461408" },
   "hex.nvim": { "branch": "master", "commit": "b46e63356a69e8d6f046c38a9708d55d17f15038" },
   "image.nvim": { "branch": "master", "commit": "88351f1f7d9dbae286e671ce3690a49660dd8a5c" },

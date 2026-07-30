@@ -45,6 +45,7 @@ spell/                   spell dictionaries
 - **Fuzzy finder / picker:** [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) and [snacks.nvim](https://github.com/folke/snacks.nvim)
 - **Status line:** [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) with [lsp-progress.nvim](https://github.com/linrongbin16/lsp-progress.nvim)
 - **Git:** [vim-fugitive](https://github.com/tpope/vim-fugitive), [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim), [worktrees.nvim](https://github.com/Juksuu/worktrees.nvim)
+- **Gerrit:** [gerrit.nvim](https://github.com/SafaeOuajih/gerrit.nvim) (review changes over ssh with `:Gerrit`)
 - **LSP tooling:** [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig), [mason.nvim](https://github.com/williamboman/mason.nvim), [SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim)
 - **Syntax:** [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) + [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
 - **Editing:**
