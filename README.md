@@ -47,6 +47,7 @@ spell/                   spell dictionaries
 - **Git:** [vim-fugitive](https://github.com/tpope/vim-fugitive), [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim), [worktrees.nvim](https://github.com/Juksuu/worktrees.nvim)
 - **Gerrit:** [gerrit.nvim](https://github.com/SafaeOuajih/gerrit.nvim) (review changes over ssh with `:Gerrit`)
 - **LSP tooling:** [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig), [mason.nvim](https://github.com/williamboman/mason.nvim), [SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim)
+- **Manifest:** [manifest.nvim] (https://github.com/SafaeOuajih/manifest.nvim) (handle repo manifests with :Manifest)
 - **Syntax:** [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) + [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
 - **Editing:**
   - [mini.ai](https://github.com/echasnovski/mini.ai) (extra text objects)
