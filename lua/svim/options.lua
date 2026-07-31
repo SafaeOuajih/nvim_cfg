@@ -142,6 +142,57 @@ autocmd('TermOpen', {
   command = 'startinsert',
 })
 
+-- Keep Neovim's working directory in sync with the shell running in a terminal
+-- buffer. The shell has to advertise its cwd with an OSC 7 escape sequence:
+-- fish does this out of the box, bash/zsh need a hook (see :help terminal-osc7).
+local term_cwd_group = augroup 'TermFollowCwd'
+
+--- `:cd` to `dir`, unless we are already there.
+---@param dir string
+local function chdir(dir)
+  if vim.fn.getcwd() ~= dir and vim.fn.isdirectory(dir) == 1 then
+    vim.cmd.cd(vim.fn.fnameescape(dir))
+  end
+end
+
+--- Extract the (percent-decoded) path from an OSC 7 sequence, if it is one.
+---@param sequence string
+---@return string?
+local function osc7_dir(sequence)
+  local path = sequence:match '^\027]7;file://[^/]*(/[^\027\a]*)'
+  if not path then
+    return nil
+  end
+  return (path:gsub('%%(%x%x)', function(hex)
+    return string.char(tonumber(hex, 16))
+  end))
+end
+
+autocmd('TermRequest', {
+  group = term_cwd_group,
+  desc = 'Follow the shell working directory announced via OSC 7',
+  callback = function(ev)
+    local dir = osc7_dir(ev.data.sequence)
+    if not dir then
+      return
+    end
+    vim.b[ev.buf].osc7_dir = dir
+    if vim.api.nvim_get_current_buf() == ev.buf then
+      chdir(dir)
+    end
+  end,
+})
+
+autocmd({ 'BufEnter', 'WinEnter' }, {
+  group = term_cwd_group,
+  desc = 'Restore the shell working directory when returning to a terminal',
+  callback = function()
+    if vim.b.osc7_dir then
+      chdir(vim.b.osc7_dir)
+    end
+  end,
+})
+
 autocmd('TextYankPost', {
   group = augroup 'Highlight_Yank',
   desc = 'Briefly highlight the yanked text',
