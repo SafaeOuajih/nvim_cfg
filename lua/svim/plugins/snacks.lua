@@ -29,6 +29,13 @@ return {
     bigfile = { enabled = true },
     input = { prompt_pos = 'left', win = { relative = 'cursor', width = 40 } },
     picker = { layout = default_reverse },
+
+    -- Floating, persistent scratch buffers. The defaults key each buffer on
+    -- the count, the cwd and the git branch, so `2<leader>.` is a different
+    -- buffer per project and per branch, and all of them survive a restart.
+    scratch = {
+      win = { width = 0.7, height = 0.7 },
+    },
   },
 
   config = function(_, opts)
@@ -56,6 +63,10 @@ return {
       { '<leader>sg', Snacks.picker.grep, desc = '[S]earch [G]rep' },
       { '<leader>sk', Snacks.picker.keymaps, desc = '[S]earch [K]eymap' },
       { '<leader>sc', Snacks.picker.autocmds, desc = '[S]earch [C]ommands' },
+
+      -- Prefix with a count to pick a slot: `2<leader>.` is scratch buffer 2.
+      { '<leader>.', function() Snacks.scratch() end, desc = 'Toggle scratch buffer' },
+      { '<leader>S', function() Snacks.scratch.select() end, desc = 'Select [S]cratch buffer' },
     }
     for _, v in pairs(keys) do
       vim.keymap.set('n', v[1], v[2], { desc = v.desc })
