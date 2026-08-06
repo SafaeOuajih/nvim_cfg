@@ -13,6 +13,7 @@
 --   - treesitter.lua   builtin treesitter setup
 --   - clangd-check.lua `:CcCheck`, a clangd compilation database check
 --   - bytes.lua        `:Bytes`, a byte/bit size converter
+--   - news.lua         `:News`, a feed reader in a terminal split
 --   - plugins/         one file per plugin, loaded automatically by lazy.nvim
 -------------------------------------------------------------------------------
 
@@ -35,6 +36,7 @@ require 'svim.lsp'
 require 'svim.treesitter'
 require 'svim.clangd-check'
 require 'svim.bytes'
+require 'svim.news'
 
 -- Bootstrap the plugin manager and load every spec under `lua/svim/plugins/`.
 local lazy_opts = require 'svim.lazy-bootstrap'
